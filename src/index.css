@@ -1,13 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.componentContainer{
+  @apply px-2 py-4  w-full h-full lg:w-3/6 xl:w-2/6 lg:h-fit xl:h-72 flex flex-col items-center justify-start lg:justify-between text-green-800 lg:border-solid lg:border border-green-700;
+}
+.component_title{
+  @apply font-semibold text-2xl;
+}
+.component_text--paragraph{
+  @apply text-lg text-center  my-8 xl:my-0;
+}
+.component_social_section .component_text--social{
+  @apply text-sm mx-2;
+}
+.component_button_section{
+  @apply mb-8 lg:mb-0;
+}
+.btn{
+  @apply rounded-md py-2 px-4 hover:scale-105;
+}
+.btn{
+  @apply rounded-md py-2 px-4 font-semibold mx-2 text-green-800;
+}
+.btn--outline{
+  @apply bg-transparent hover:bg-gray-100 border border-solid ;
+}
+.btn--solid{
+  @apply bg-green-400 hover:bg-green-900 hover:text-green-200 border border-solid border-green-500;
+}
+.component_social_section{
+  @apply flex flex-col items-center;
+}
+.component_icon_section{
+  @apply w-full h-16 flex justify-center items-center;
+}
+a{
+  @apply text-2xl inline-block border border-solid rounded-md p-2 mx-2 hover:scale-105 ;
+}
+a:hover .google{
+  @apply text-red-800;
+}
+a:hover .apple{
+  @apply text-gray-800;
+}
+a:hover .facebook{
+  @apply text-blue-600;
 }
