@@ -1,4 +1,5 @@
 import React from 'react';
+import '../style/welcome_style.css'
 import { RiGoogleFill, RiAppleFill, RiFacebookFill } from "react-icons/ri";
 
 export default function WelcomeComponent() {

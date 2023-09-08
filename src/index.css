@@ -13,31 +13,29 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 .componentContainer{
-  @apply px-2 py-4  w-full h-full lg:w-3/6 xl:w-2/6 lg:h-fit xl:h-72 flex flex-col items-center justify-start lg:justify-between text-green-800 lg:border-solid lg:border border-green-700;
+  @apply px-2 py-4  w-full h-full lg:w-3/6 xl:w-2/6 lg:h-fit xl:h-fit flex flex-col items-center justify-start lg:justify-between text-green-800 lg:border-solid lg:border border-green-700;
 }
 .component_title{
   @apply font-semibold text-2xl;
 }
-.component_text--paragraph{
-  @apply text-lg text-center  my-8 xl:my-0;
-}
-.component_social_section .component_text--social{
-  @apply text-sm mx-2;
-}
-.component_button_section{
-  @apply mb-8 lg:mb-0;
-}
+
 .btn{
   @apply rounded-md py-2 px-4 hover:scale-105;
 }
 .btn{
   @apply rounded-md py-2 px-4 font-semibold mx-2 text-green-800;
 }
+.btn--full{
+  @apply w-full px-4 lg:w-fit lg:px-16;
+}
 .btn--outline{
   @apply bg-transparent hover:bg-gray-100 border border-solid ;
 }
 .btn--solid{
   @apply bg-green-400 hover:bg-green-900 hover:text-green-200 border border-solid border-green-500;
+}
+.btn--solid--inverted{
+  @apply bg-green-900 text-green-200 hover:bg-green-400 hover:text-green-900 border border-solid border-green-500;
 }
 .component_social_section{
   @apply flex flex-col items-center;
@@ -57,3 +55,25 @@ a:hover .apple{
 a:hover .facebook{
   @apply text-blue-600;
 }
+.component_form_section{
+  @apply my-6;
+}
+.form{
+  @apply flex flex-col items-center;
+}
+.form .form__input-container{
+  @apply flex flex-col relative w-full lg:w-80 rounded-md border border-solid px-2 py-3 mb-4;
+}
+.input_container{
+  @apply flex items-center;
+}
+.form .form__input-field{
+  @apply w-full px-2 py-2;
+}
+.form__label{
+  @apply absolute -top-4 bg-white;
+}
+.icon{
+  @apply text-lg pl-2 pr-3;
+}
+/*RiPlantFill*/

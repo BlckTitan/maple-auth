@@ -1,0 +1,9 @@
+.component_text--paragraph{
+    @apply text-lg text-center  my-8 xl:my-0;
+}
+.component_social_section .component_text--social{
+    @apply text-sm mx-2;
+}
+.component_button_section{
+    @apply mb-8 lg:mb-0;
+}
