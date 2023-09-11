@@ -28,13 +28,13 @@ export default function WelcomeComponent() {
             </div>
             
             <div className='component_icon_section'>
-                <a href='!#'>
+                <a href='!#' className='icon_links'>
                     <RiGoogleFill className='google'/>
                 </a>
-                <a href='!#'>
+                <a href='!#' className='icon_links'>
                     <RiAppleFill className='apple'/>
                 </a>
-                <a href='!#'>
+                <a href='!#' className='icon_links'>
                     <RiFacebookFill className='facebook'/>
                 </a>
             </div>

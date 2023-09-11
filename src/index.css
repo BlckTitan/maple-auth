@@ -43,16 +43,16 @@ body {
 .component_icon_section{
   @apply w-full h-16 flex justify-center items-center;
 }
-a{
+.icon_links{
   @apply text-2xl inline-block border border-solid rounded-md p-2 mx-2 hover:scale-105 ;
 }
-a:hover .google{
+.icon_links:hover .google{
   @apply text-red-800;
 }
-a:hover .apple{
+.icon_links:hover .apple{
   @apply text-gray-800;
 }
-a:hover .facebook{
+.icon_links:hover .facebook{
   @apply text-blue-600;
 }
 .component_form_section{
@@ -62,7 +62,7 @@ a:hover .facebook{
   @apply flex flex-col items-center;
 }
 .form .form__input-container{
-  @apply flex flex-col relative w-full lg:w-80 rounded-md border border-solid px-2 py-3 mb-4;
+  @apply flex flex-col relative w-full lg:w-80 rounded-md border border-solid px-2 py-3 mt-4;
 }
 .input_container{
   @apply flex items-center;

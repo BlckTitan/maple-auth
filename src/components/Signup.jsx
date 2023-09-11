@@ -29,6 +29,7 @@ export default function SignupComponent() {
                             <i className='icon'><RiPhoneLine/></i>
                             <input 
                                 id='mobile'
+                                type='tel'
                                 placeholder='+2348000000000'
                                 {...register("mobileNumber", {required: true})} className='form__input-field' 
                             />
@@ -43,7 +44,8 @@ export default function SignupComponent() {
                         <div className='input-items'> 
                             <i className='icon'><RiUser3Line/></i>
                             <input 
-                                id='email' 
+                                id='email'
+                                type='email'
                                 placeholder='international.over@email.com' 
                                 {...register("email", {required: true})} 
                                 className='form__input-field'
@@ -98,13 +100,13 @@ export default function SignupComponent() {
             </div>
             
             <div className='component_icon_section'>
-                <a href='!#'>
+                <a href='!#' className='icon_links'>
                     <RiGoogleFill className='google'/>
                 </a>
-                <a href='!#'>
+                <a href='!#' className='icon_links'>
                     <RiAppleFill className='apple'/>
                 </a>
-                <a href='!#'>
+                <a href='!#' className='icon_links'>
                     <RiFacebookFill className='facebook'/>
                 </a>
             </div>
