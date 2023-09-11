@@ -6,7 +6,7 @@ export default function WelcomeComponent() {
   return (
     <main className='componentContainer lg:border-solid lg:border lg:rounded-md shadow-sm'>
         
-        <h2 className='component_title'>Welcome!</h2>
+        <h2 className='component_title'>Welcome</h2>
         <p className='component_text component_text--paragraph'>
             Join task management community, 
             unlock the power of productivity.

@@ -67,13 +67,19 @@ a:hover .facebook{
 .input_container{
   @apply flex items-center;
 }
+.input-items{
+  @apply flex items-center bg-gray-100 w-full h-fit flex items-center px-1;
+}
 .form .form__input-field{
-  @apply w-full px-2 py-2;
+  @apply w-full px-2 py-2 bg-gray-100;
 }
 .form__label{
   @apply absolute -top-4 bg-white;
 }
 .icon{
-  @apply text-lg pl-2 pr-3;
+  @apply text-lg mr-1;
+}
+.icon-svg--left{
+  @apply  ml-1;
 }
 /*RiPlantFill*/

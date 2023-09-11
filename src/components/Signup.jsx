@@ -25,12 +25,14 @@ export default function SignupComponent() {
                 <div className='form__input-container'>
                     <label className='form__label'>Mobile number</label>
                     <div className='input_container'>
-                        <i className='icon'><RiPhoneLine/></i>
-                        <input 
-                            id='mobile'
-                            placeholder='+2348000000000'
-                            {...register("mobileNumber", {required: true})} className='form__input-field' 
-                        />
+                        <div className='input-items'>
+                            <i className='icon'><RiPhoneLine/></i>
+                            <input 
+                                id='mobile'
+                                placeholder='+2348000000000'
+                                {...register("mobileNumber", {required: true})} className='form__input-field' 
+                            />
+                        </div>
                     </div>
                     {errors.mobileNumber && <span>This field is required</span>}
                 </div>
@@ -38,13 +40,15 @@ export default function SignupComponent() {
                 <div className='form__input-container'>
                     <label className='form__label'>Email</label>
                     <div className='input_container'>
-                        <i className='icon'><RiUser3Line/></i>
-                        <input 
-                            id='email' 
-                            placeholder='international.over@email.com' 
-                            {...register("email", {required: true})} 
-                            className='form__input-field'
-                        />
+                        <div className='input-items'> 
+                            <i className='icon'><RiUser3Line/></i>
+                            <input 
+                                id='email' 
+                                placeholder='international.over@email.com' 
+                                {...register("email", {required: true})} 
+                                className='form__input-field'
+                            />
+                        </div>
                     </div>
                     {errors.email && <span>This field is required</span>}
                 </div>
@@ -52,26 +56,29 @@ export default function SignupComponent() {
                 <div className='form__input-container'>
                     <label className='form__label'>Password</label>
                     <div className='input_container'>
-                        <i className='icon'><RiKey2Line/></i>
-                        <input 
-                            id='password' 
-                            type={(isPasswordHidden === false) ? 
-                                'password' : 
-                                'text'
-                            } 
-                            {...register("Password", {required: true})} 
-                            className='form__input-field' 
-                        />
-                        <button 
-                            type='button' 
-                            onClick={()=>setIsPassWordHidden(!isPasswordHidden)}
-                        >
-                            {
-                                (isPasswordHidden === true) ? 
-                               <RiEyeOffFill/> :
-                            <RiEyeLine/>
-                            }
+                        <div className='input-items'>
+                            <i className='icon'><RiKey2Line/></i>
+                            <input 
+                                id='password' 
+                                type={(isPasswordHidden === false) ? 
+                                    'password' : 
+                                    'text'
+                                } 
+                                {...register("Password", {required: true})} 
+                                className='form__input-field' 
+                            />
+                            
+                            <button 
+                                type='button' 
+                                onClick={()=>setIsPassWordHidden(!isPasswordHidden)}
+                            >
+                                {
+                                    (isPasswordHidden === true) ? 
+                                    <RiEyeOffFill className='icon-svg icon-svg--left'/> :
+                                    <RiEyeLine className='icon-svg icon-svg--left'/>
+                                }
                         </button>
+                        </div>
                     </div>
                     {errors.Password && <span>This field is required</span>}
                 </div>
