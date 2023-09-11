@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { RiAppleFill, RiEyeLine, RiEyeOffFill, RiFacebookFill, RiGoogleFill, RiKey2Line, RiPhoneLine, RiUser3Line } from 'react-icons/ri'
+import { toast } from 'react-toastify';
 
 export default function SignupComponent() {
     const [isPasswordHidden, setIsPassWordHidden] = useState(false)
@@ -9,9 +10,13 @@ export default function SignupComponent() {
         handleSubmit,
         watch,
         formState: { errors },
-      } = useForm()
+    } = useForm()
 
-      const onSubmit = (data) => console.log(data)
+    const onSubmit = (data) => console.log(data)
+    const toastId = React.useRef(null);
+    const notify_error = (notify, id) =>{
+        toast.error(notify, {toastId: id})
+    }
 
   return (
     <main className='componentContainer lg:border-solid lg:border lg:rounded-md shadow-sm'>
@@ -35,7 +40,10 @@ export default function SignupComponent() {
                             />
                         </div>
                     </div>
-                    {errors.mobileNumber && <span>This field is required</span>}
+                    {
+                        errors.mobileNumber && 
+                        notify_error('Mobile number cannot be empty', 3)
+                    }
                 </div>
 
                 <div className='form__input-container'>
@@ -52,7 +60,10 @@ export default function SignupComponent() {
                             />
                         </div>
                     </div>
-                    {errors.email && <span>This field is required</span>}
+                    {
+                        errors.email && 
+                        notify_error('Email cannot be empty', 4)
+                    }
                 </div>
 
                 <div className='form__input-container'>
@@ -82,7 +93,9 @@ export default function SignupComponent() {
                         </button>
                         </div>
                     </div>
-                    {errors.Password && <span>This field is required</span>}
+                    {   errors.Password && 
+                        notify_error('Password cannot be empty', 5)
+                    }
                 </div>
 
                 <button type="submit" className='btn btn--full btn--solid btn--solid--inverted'>Sign Up</button>

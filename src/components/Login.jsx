@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import '../style/signin_style.css';
 import { RiEyeLine, RiEyeOffFill,RiKey2Line, RiPhoneLine } from 'react-icons/ri'
+import { toast } from 'react-toastify';
 
 export default function LoginComponent() {
 
@@ -11,9 +12,12 @@ export default function LoginComponent() {
         handleSubmit,
         watch,
         formState: { errors },
-      } = useForm()
+    } = useForm()
 
-      const onSubmit = (data) => console.log(data)
+    const onSubmit = (data) => console.log(data)
+    const notify_error = (notify, id) =>{
+        toast.error(notify, {toastId: id})
+    }
 
   return (
     <main className='componentContainer lg:border-solid lg:border lg:rounded-md shadow-sm'>
@@ -37,7 +41,10 @@ export default function LoginComponent() {
                             />
                         </div>
                     </div>
-                    {errors.mobileNumber && <span>This field is required</span>}
+                    {
+                        errors.mobileNumber && 
+                        notify_error('Email/Mobile cannot be empty', 1)
+                    }
                 </div>
 
                 <div className='form__input-container'>
@@ -67,7 +74,10 @@ export default function LoginComponent() {
                         </button>
                         </div>
                     </div>
-                    {errors.Password && <span>This field is required</span>}
+                    {   
+                        errors.Password && 
+                        notify_error('Password cannot be empty', 2)
+                    }
                 </div>
                 <div className='sub-text'>
                     <a href='!#' className=''>
