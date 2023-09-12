@@ -1,8 +1,15 @@
 import React from 'react';
 import '../style/welcome_style.css'
 import { RiGoogleFill, RiAppleFill, RiFacebookFill } from "react-icons/ri";
+import { useDispatch } from 'react-redux';
+import { renderStep } from '../slices/stepSlice';
 
 export default function WelcomeComponent() {
+
+    const DISPATCH = useDispatch()
+    const handleStepChange = (newStep) => {
+        DISPATCH(renderStep(newStep))
+    }
   return (
     <main className='componentContainer'>
         
@@ -13,8 +20,8 @@ export default function WelcomeComponent() {
         </p>
 
         <section className='component_button_section'>
-            <button className='btn btn--outline'>Sign In</button>
-            <button className='btn btn--solid'>Sign Up</button>
+            <button className='btn btn--outline' onClick={() => handleStepChange(2)}>Sign In</button>
+            <button className='btn btn--solid' onClick={()=>handleStepChange(1)}>Sign Up</button>
         </section>
 
         <section className='component_social_section'>
