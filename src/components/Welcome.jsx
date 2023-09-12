@@ -4,7 +4,7 @@ import { RiGoogleFill, RiAppleFill, RiFacebookFill } from "react-icons/ri";
 
 export default function WelcomeComponent() {
   return (
-    <main className='componentContainer lg:border-solid lg:border lg:rounded-md shadow-sm'>
+    <main className='componentContainer'>
         
         <h2 className='component_title'>Welcome</h2>
         <p className='component_text component_text--paragraph'>

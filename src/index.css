@@ -11,9 +11,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  @apply bg-green-100;
 }
 .componentContainer{
-  @apply px-2 py-4  w-full h-full lg:w-3/6 xl:w-2/6 lg:h-fit xl:h-fit flex flex-col items-center justify-start lg:justify-between text-green-800 lg:border-solid lg:border border-green-700;
+  @apply bg-white px-2 py-4  w-full h-full lg:w-3/6 xl:w-2/6 lg:h-fit xl:h-fit flex flex-col items-center justify-start lg:justify-between text-green-800 shadow-sm;
 }
 .component_title{
   @apply font-semibold text-2xl;

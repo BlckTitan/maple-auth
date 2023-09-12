@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { RiAppleFill, RiEyeLine, RiEyeOffFill, RiFacebookFill, RiGoogleFill, RiKey2Line, RiPhoneLine, RiUser3Line } from 'react-icons/ri'
-import { toast } from 'react-toastify';
+import { RiAppleFill, RiEyeLine, RiEyeOffFill, RiFacebookFill, RiGoogleFill, RiKey2Line, RiPhoneLine, RiUser3Line } from 'react-icons/ri';
+import notify_error from '../utils/toast_util';
 
 export default function SignupComponent() {
     const [isPasswordHidden, setIsPassWordHidden] = useState(false)
@@ -14,12 +14,10 @@ export default function SignupComponent() {
 
     const onSubmit = (data) => console.log(data)
     const toastId = React.useRef(null);
-    const notify_error = (notify, id) =>{
-        toast.error(notify, {toastId: id})
-    }
+    
 
   return (
-    <main className='componentContainer lg:border-solid lg:border lg:rounded-md shadow-sm'>
+    <main className='componentContainer'>
         
         <h2 className='component_title'>Sign Up</h2>
         
@@ -36,7 +34,10 @@ export default function SignupComponent() {
                                 id='mobile'
                                 type='tel'
                                 placeholder='+2348000000000'
-                                {...register("mobileNumber", {required: true})} className='form__input-field' 
+                                pattern="[0-9]{3} [0-9]{3} [0-9]{4}"
+                                {...register("mobileNumber", 
+                                {required: true})}
+                                className='form__input-field' 
                             />
                         </div>
                     </div>
@@ -55,7 +56,7 @@ export default function SignupComponent() {
                                 id='email'
                                 type='email'
                                 placeholder='international.over@email.com' 
-                                {...register("email", {required: true})} 
+                                {...register("email", {required: true, pattern: {value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z0-9.]+$/i}})} 
                                 className='form__input-field'
                             />
                         </div>
