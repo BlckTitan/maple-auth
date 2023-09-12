@@ -19,12 +19,12 @@ export default function WelcomeComponent() {
 
         <section className='component_social_section'>
             
-            <div className='flex items-center mb-8 lg:mb-0'>
-                <span className='inline-block bg-gray-300 w-28 h-px'></span>
+            <div className='divider-container'>
+                <span className='divider-container__divider'></span>
                 <p className='component_text--social'>
                     Or continue with
                 </p>
-                <span className='inline-block bg-gray-300 w-28 h-px'></span>
+                <span className='divider-container__divider'></span>
             </div>
             
             <div className='component_icon_section'>

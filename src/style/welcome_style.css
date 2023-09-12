@@ -1,9 +1,15 @@
 .component_text--paragraph{
-    @apply text-lg text-center  my-8 xl:my-0;
+    @apply text-lg text-center  my-8 xl:my-8;
 }
 .component_social_section .component_text--social{
     @apply text-sm mx-2;
 }
 .component_button_section{
     @apply mb-8 lg:mb-0;
+}
+.divider-container{
+    @apply flex items-center mb-8 lg:my-6;
+}
+.divider-container__divider{
+    @apply inline-block bg-gray-300 w-28 h-px;
 }

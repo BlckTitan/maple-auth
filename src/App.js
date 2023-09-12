@@ -7,9 +7,9 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <div className="App w-full h-screen pt-24 lg:pt-0 lg:flex justify-center items-center">
-      {/* <WelcomeComponent/> */}
+      <WelcomeComponent/>
       {/* <SignupComponent/> */}
-      <LoginComponent/>
+      {/* <LoginComponent/> */}
       <ToastContainer/>
     </div>
   );
