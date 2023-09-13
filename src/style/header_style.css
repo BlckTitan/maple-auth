@@ -1,0 +1,9 @@
+.header{
+    @apply w-full h-fit flex px-4 items-center justify-start;
+}
+.icon--xl{
+    @apply text-3xl;
+}
+.header-text{
+    @apply font-semibold text-xl;
+}
