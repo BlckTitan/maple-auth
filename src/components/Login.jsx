@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import '../style/signin_style.css';
-import { RiEyeLine, RiEyeOffFill,RiKey2Line, RiPhoneLine } from 'react-icons/ri'
+import { RiEyeLine, RiEyeOffFill,RiKey2Line } from 'react-icons/ri';
+import { HiOutlineUser } from "react-icons/hi";
 import notify_error from '../utils/toast_util';
 
 export default function LoginComponent() {
@@ -26,14 +27,13 @@ export default function LoginComponent() {
             <form onSubmit={handleSubmit(onSubmit)} className='form'>
 
                 <div className='form__input-container'>
-                    <label className='form__label'>Email/Mobile</label>
+                    <label className='form__label' htmlFor='mobile'>Email/Mobile</label>
                     <div className='input_container'>
                         <div className='input-items'>
-                            <i className='icon'><RiPhoneLine/></i>
+                            <i className='icon'><HiOutlineUser/></i>
                             <input 
                                 id='mobile'
                                 type='text'
-                                placeholder='+2348000000000'
                                 {...register("mobileNumber", {required: true})} className='form__input-field' 
                             />
                         </div>
@@ -45,7 +45,7 @@ export default function LoginComponent() {
                 </div>
 
                 <div className='form__input-container'>
-                    <label className='form__label'>Password</label>
+                    <label className='form__label' htmlFor='password'>Password</label>
                     <div className='input_container'>
                         <div className='input-items'>
                             <i className='icon'><RiKey2Line/></i>

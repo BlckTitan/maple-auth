@@ -1,8 +1,8 @@
 import React from 'react';
 import '../style/welcome_style.css'
-import { RiGoogleFill, RiAppleFill, RiFacebookFill } from "react-icons/ri";
 import { useDispatch } from 'react-redux';
 import { renderStep } from '../slices/stepSlice';
+import Socials from './Socials';
 
 export default function WelcomeComponent() {
 
@@ -34,17 +34,7 @@ export default function WelcomeComponent() {
                 <span className='divider-container__divider'></span>
             </div>
             
-            <div className='component_icon_section'>
-                <a href='!#' className='icon_links'>
-                    <RiGoogleFill className='google'/>
-                </a>
-                <a href='!#' className='icon_links'>
-                    <RiAppleFill className='apple'/>
-                </a>
-                <a href='!#' className='icon_links'>
-                    <RiFacebookFill className='facebook'/>
-                </a>
-            </div>
+           <Socials/>
         </section>
 
     </main>

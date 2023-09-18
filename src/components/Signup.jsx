@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { RiAppleFill, RiEyeLine, RiEyeOffFill, RiFacebookFill, RiGoogleFill, RiKey2Line, RiPhoneLine, RiUser3Line } from 'react-icons/ri';
+import { RiEyeLine, RiEyeOffFill, RiKey2Line, RiPhoneLine, RiUser3Line } from 'react-icons/ri';
 import notify_error from '../utils/toast_util';
+import Socials from './Socials';
 
 export default function SignupComponent() {
+
     const [isPasswordHidden, setIsPassWordHidden] = useState(false)
+    // const [pwrd, setPwrd] = useState('');
+    // const [confirmPwrd, setConfirmPwrd] = useState('');
+    const [pwrdMatch, setPwrdMatch] = useState('');
+
+
     const {
         register,
         handleSubmit,
@@ -12,9 +19,14 @@ export default function SignupComponent() {
         formState: { errors },
     } = useForm()
 
-    const onSubmit = (data) => console.log(data)
-    const toastId = React.useRef(null);
-    
+    const onSubmit = (data) =>{ 
+        console.log(data)
+        if(data.password === data.confirmPassword) {
+            setPwrdMatch(data.confirmPassword)
+        }else{
+            notify_error('Passwords do not match', 7)
+        }
+    }
 
   return (
     <main className='componentContainer'>
@@ -26,15 +38,16 @@ export default function SignupComponent() {
             <form onSubmit={handleSubmit(onSubmit)} className='form'>
 
                 <div className='form__input-container'>
-                    <label className='form__label'>Mobile number</label>
+                    <label className='form__label' htmlFor='mobile'>Mobile number</label>
                     <div className='input_container'>
                         <div className='input-items'>
                             <i className='icon'><RiPhoneLine/></i>
                             <input 
                                 id='mobile'
+                                autoComplete='off'
                                 type='tel'
-                                placeholder='+2348000000000'
-                                pattern="[0-9]{3} [0-9]{3} [0-9]{4}"
+                                placeholder='234 800 000 0000'
+                                pattern="[0-9]{3}[0-9]{3}[0-9]{3}[0-9]{4}"
                                 {...register("mobileNumber", 
                                 {required: true})}
                                 className='form__input-field' 
@@ -48,12 +61,13 @@ export default function SignupComponent() {
                 </div>
 
                 <div className='form__input-container'>
-                    <label className='form__label'>Email</label>
+                    <label className='form__label' htmlFor='email'>Email</label>
                     <div className='input_container'>
                         <div className='input-items'> 
                             <i className='icon'><RiUser3Line/></i>
                             <input 
                                 id='email'
+                                autoComplete='off'
                                 type='email'
                                 placeholder='international.over@email.com' 
                                 {...register("email", {required: true, pattern: {value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z0-9.]+$/i}})} 
@@ -68,17 +82,18 @@ export default function SignupComponent() {
                 </div>
 
                 <div className='form__input-container'>
-                    <label className='form__label'>Password</label>
+                    <label className='form__label' htmlFor='password'>Password</label>
                     <div className='input_container'>
                         <div className='input-items'>
                             <i className='icon'><RiKey2Line/></i>
                             <input 
                                 id='password' 
+                                autoComplete='off'
                                 type={(isPasswordHidden === false) ? 
                                     'password' : 
                                     'text'
                                 } 
-                                {...register("Password", {required: true})} 
+                                {...register("password", {required: true})} 
                                 className='form__input-field' 
                             />
                             
@@ -99,6 +114,39 @@ export default function SignupComponent() {
                     }
                 </div>
 
+                <div className='form__input-container'>
+                    <label className='form__label' htmlFor='confirm-password'>Confirm Password</label>
+                    <div className='input_container'>
+                        <div className='input-items'>
+                            <i className='icon'><RiKey2Line/></i>
+                            <input 
+                                id='confirm-password' 
+                                autoComplete=''
+                                type={(isPasswordHidden === false) ? 
+                                    'password' : 
+                                    'text'
+                                } 
+                                {...register("confirmPassword", {required: true})} 
+                                className='form__input-field' 
+                            />
+                            
+                            <button 
+                                type='button' 
+                                onClick={()=>setIsPassWordHidden(!isPasswordHidden)}
+                            >
+                                {
+                                    (isPasswordHidden === true) ? 
+                                    <RiEyeOffFill className='icon-svg icon-svg--left'/> :
+                                    <RiEyeLine className='icon-svg icon-svg--left'/>
+                                }
+                        </button>
+                        </div>
+                    </div>
+                    {   errors.confirmPassword && 
+                        notify_error('Passwords do not match', 6)
+                    }
+                </div>
+
                 <button type="submit" className='btn btn--full btn--solid btn--solid--inverted'>Sign Up</button>
             </form>
         </section>
@@ -113,17 +161,7 @@ export default function SignupComponent() {
                 <span className='inline-block bg-gray-300 w-28 h-px'></span>
             </div>
             
-            <div className='component_icon_section'>
-                <a href='!#' className='icon_links'>
-                    <RiGoogleFill className='google'/>
-                </a>
-                <a href='!#' className='icon_links'>
-                    <RiAppleFill className='apple'/>
-                </a>
-                <a href='!#' className='icon_links'>
-                    <RiFacebookFill className='facebook'/>
-                </a>
-            </div>
+            <Socials/>
         </section>
 
     </main>
